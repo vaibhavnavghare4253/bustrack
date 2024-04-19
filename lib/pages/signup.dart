@@ -1,7 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+final _formKey = GlobalKey<FormState>();
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -52,15 +56,44 @@ class SignupPage extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                    TextField(
+                    Form(
+                      key: _formKey,
+
+                    child: TextFormField(
                       decoration: InputDecoration(
-                          hintText: "Email",
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(18),
-                              borderSide: BorderSide.none),
+                        labelText: 'Email',
+                        border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.circular(18),
+                            borderSide: BorderSide.none),
                           fillColor: Colors.purple.withOpacity(0.1),
                           filled: true,
-                          prefixIcon: const Icon(Icons.email)),
+                          prefixIcon: const Icon(Icons.email)
+                        ),
+
+                        // final _formKey = GlobalKey<FormState>();
+
+          validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter an email address';
+                        } else if (!RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$').hasMatch(value)) {
+                          return 'Please enter a valid email address';
+                        }
+                        return null; // Return null if the input is valid
+                      },
+
+                      ),
+
+
+                    // TextField(
+                    //   decoration: InputDecoration(
+                    //       hintText: "Email",
+                    //       border: OutlineInputBorder(
+                    //           borderRadius: BorderRadius.circular(18),
+                    //           borderSide: BorderSide.none),
+                    //       fillColor: Colors.purple.withOpacity(0.1),
+                    //       filled: true,
+                    //       prefixIcon: const Icon(Icons.email)),
+                    //
                     ),
 
                     const SizedBox(height: 20),
@@ -99,10 +132,16 @@ class SignupPage extends StatelessWidget {
 
                     child: ElevatedButton(
                       onPressed: () {
+
+                        if (_formKey.currentState!.validate()) {
+                    // Process the form data
+                                  }
+                        child: Text('login Submit');
                       },
                       child: const Text(
                         "Sign up",
                         style: TextStyle(fontSize: 20),
+                        selectionColor: Colors.white,
                       ),
                       style: ElevatedButton.styleFrom(
                         shape: const StadiumBorder(),
@@ -148,8 +187,9 @@ class SignupPage extends StatelessWidget {
 
                         const SizedBox(width: 18),
 
-                        const Text("Sign In with Google",
-                          style: TextStyle(
+
+
+                        const Text("Sign In with Google", style: TextStyle(
                             fontSize: 16,
                             color: Colors.purple,
                           ),
