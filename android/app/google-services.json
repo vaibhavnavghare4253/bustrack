@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "981845607190",
+    "firebase_url": "https://busdata-2024-default-rtdb.firebaseio.com",
+    "project_id": "busdata-2024",
+    "storage_bucket": "busdata-2024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981845607190:android:2bacc8c4a1bced9b240637",
+        "android_client_info": {
+          "package_name": "com.example.bus_track"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzO0YYrQuBT0eELo2vGe8d4vwaLA_TAKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981845607190:android:fe64029ade3c6b11240637",
+        "android_client_info": {
+          "package_name": "com.example.bustrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzO0YYrQuBT0eELo2vGe8d4vwaLA_TAKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
