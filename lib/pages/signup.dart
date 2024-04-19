@@ -140,7 +140,7 @@ class SignupPage extends StatelessWidget {
                       },
                       child: const Text(
                         "Sign up",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(color:Colors.white, fontSize: 20),
                         selectionColor: Colors.white,
                       ),
                       style: ElevatedButton.styleFrom(
