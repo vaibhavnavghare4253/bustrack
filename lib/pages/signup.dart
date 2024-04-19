@@ -187,8 +187,9 @@ class SignupPage extends StatelessWidget {
 
                         const SizedBox(width: 18),
 
-                        const Text("Sign In with Google",
-                          style: TextStyle(
+
+
+                        const Text("Sign In with Google", style: TextStyle(
                             fontSize: 16,
                             color: Colors.purple,
                           ),
