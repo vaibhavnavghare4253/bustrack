@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 final _formKey = GlobalKey<FormState>();
@@ -136,17 +135,17 @@ class SignupPage extends StatelessWidget {
                         if (_formKey.currentState!.validate()) {
                     // Process the form data
                                   }
-                        child: Text('login Submit');
+                        child: const Text('login Submit');
                       },
-                      child: const Text(
-                        "Sign up",
-                        style: TextStyle(color:Colors.white, fontSize: 20),
-                        selectionColor: Colors.white,
-                      ),
                       style: ElevatedButton.styleFrom(
                         shape: const StadiumBorder(),
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         backgroundColor: Colors.purple,
+                      ),
+                      child: const Text(
+                        "Sign up",
+                        style: TextStyle(color:Colors.white, fontSize: 20),
+                        selectionColor: Colors.white,
                       ),
                     )
                 ),
