@@ -1,220 +1,123 @@
 import 'package:flutter/material.dart';
+import '../components/login_auth.dart';
 
-final _formKey = GlobalKey<FormState>();
 
-class SignupPage extends StatelessWidget {
-  const SignupPage({super.key});
-
+class Registar extends StatefulWidget {
+  const Registar({super.key});
 
   @override
+  _RegistarState createState() => _RegistarState();
+}
+
+class _RegistarState extends State<Registar> {
+  final _formkey = GlobalKey<FormState>();
+  bool isLogin = false;
+  String email = '';
+  String password = '';
+  String username = '';
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            height: MediaQuery.of(context).size.height - 50,
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    const SizedBox(height: 60.0),
-
-                    const Text(
-                      "Sign up",
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      "Create your account",
-                      style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-                    )
-                  ],
-                ),
-                Column(
-                  children: <Widget>[
-                    TextField(
-                      decoration: InputDecoration(
-                          hintText: "Username",
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(18),
-                              borderSide: BorderSide.none),
-                          fillColor: Colors.purple.withOpacity(0.1),
-                          filled: true,
-                          prefixIcon: const Icon(Icons.person)),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    Form(
-                      key: _formKey,
-
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                        border: UnderlineInputBorder(
-                          borderRadius: BorderRadius.circular(18),
-                            borderSide: BorderSide.none),
-                          fillColor: Colors.purple.withOpacity(0.1),
-                          filled: true,
-                          prefixIcon: const Icon(Icons.email)
-                        ),
-
-                        // final _formKey = GlobalKey<FormState>();
-
-          validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter an email address';
-                        } else if (!RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$').hasMatch(value)) {
-                          return 'Please enter a valid email address';
-                        }
-                        return null; // Return null if the input is valid
-                      },
-
-                      ),
-
-
-                    // TextField(
-                    //   decoration: InputDecoration(
-                    //       hintText: "Email",
-                    //       border: OutlineInputBorder(
-                    //           borderRadius: BorderRadius.circular(18),
-                    //           borderSide: BorderSide.none),
-                    //       fillColor: Colors.purple.withOpacity(0.1),
-                    //       filled: true,
-                    //       prefixIcon: const Icon(Icons.email)),
-                    //
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: "Password",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(18),
-                            borderSide: BorderSide.none),
-                        fillColor: Colors.purple.withOpacity(0.1),
-                        filled: true,
-                        prefixIcon: const Icon(Icons.password),
-                      ),
-                      obscureText: true,
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: "Confirm Password",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(18),
-                            borderSide: BorderSide.none),
-                        fillColor: Colors.purple.withOpacity(0.1),
-                        filled: true,
-                        prefixIcon: const Icon(Icons.password),
-                      ),
-                      obscureText: true,
-                    ),
-                  ],
-                ),
-                Container(
-                    padding: const EdgeInsets.only(top: 3, left: 3),
-
-                    child: ElevatedButton(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Email/Pass Auth'),
+      ),
+      body: Form(
+        key: _formkey,
+        child: Container(
+          margin: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              !isLogin
+                  ? TextFormField(
+                key: const ValueKey('username'),
+                decoration: const InputDecoration(hintText: "Enter Username"),
+                validator: (value) {
+                  if (value.toString().length < 3) {
+                    return 'Username is so small';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  setState(() {
+                    username = value!;
+                  });
+                },
+              )
+                  : Container(),
+              TextFormField(
+                key: const ValueKey('email'),
+                decoration: const InputDecoration(hintText: "Enter Email"),
+                validator: (value) {
+                  if (!(value.toString().contains('@'))) {
+                    return 'Invalid Email';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  setState(() {
+                    email = value!;
+                  });
+                },
+              ),
+              TextFormField(
+                obscureText: true,
+                key: const ValueKey('password'),
+                decoration: const InputDecoration(hintText: "Enter Password"),
+                validator: (value) {
+                  if (value.toString().length < 6) {
+                    return 'Password is so small';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  setState(() {
+                    password = value!;
+                  });
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
                       onPressed: () {
-
-                        if (_formKey.currentState!.validate()) {
-                    // Process the form data
-                                  }
-                        child: const Text('login Submit');
+                        if (_formkey.currentState!.validate()) {
+                          _formkey.currentState!.save();
+                          isLogin
+                              ? signin(email, password)
+                              : signup(email, password);
+                        }
                       },
-                      style: ElevatedButton.styleFrom(
-                        shape: const StadiumBorder(),
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: Colors.purple,
-                      ),
-                      child: const Text(
-                        "Sign up",
-                        style: TextStyle(color:Colors.white, fontSize: 20),
-                        selectionColor: Colors.white,
-                      ),
-                    )
-                ),
 
-                const Center(child: Text("Or")),
+                      child: isLogin
+                          ? const Text('Login')
+                          : const Text('Signup'))),
 
-                Container(
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(
-                      color: Colors.purple,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white.withOpacity(0.5),
-                        spreadRadius: 1,
-                        blurRadius: 1,
-                        offset: const Offset(0, 1), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 30.0,
-                          width: 30.0,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image:   AssetImage('assets/images/login_signup/google.png'),
-                                fit: BoxFit.cover),
-                            shape: BoxShape.circle,
-                          ),
-                        ),
+              //TODO connect login button with dashboard...
 
-                        const SizedBox(width: 18),
-
-
-
-                        const Text("Sign In with Google", style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.purple,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const Text("Already have an account?"),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text("Login", style: TextStyle(color: Colors.purple),)
-                    )
-                  ],
-                )
-              ],
-            ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextButton(
+                  onPressed: () {
+                    setState(() {
+                      isLogin = !isLogin;
+                    });
+                  },
+                  child: isLogin
+                      ? const Text("Don't have an account? Signup")
+                      : const Text('Already Signed Up? Login'))
+            ],
           ),
         ),
       ),
     );
   }
-}
+}//
+
