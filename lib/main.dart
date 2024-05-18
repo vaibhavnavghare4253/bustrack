@@ -1,6 +1,7 @@
+import 'package:bus_track/pages/interpage.dart';
+// import 'package:bus_track/pages/interpage.dart';
 import 'package:flutter/material.dart';
 // import 'pages/login_page.dart';
-import 'pages/SignupPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: Tryoff(),
     );
   }
 }
