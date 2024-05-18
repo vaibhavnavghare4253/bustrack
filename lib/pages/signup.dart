@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/login_auth.dart';
+import 'interpage.dart';
 
 
 class Registar extends StatefulWidget {
@@ -89,6 +90,11 @@ class _RegistarState extends State<Registar> {
                       onPressed: () {
                         if (_formkey.currentState!.validate()) {
                           _formkey.currentState!.save();
+                          // Navigate to the interpage.dart route
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Tryoff()),
+                          );
                           isLogin
                               ? signin(email, password)
                               : signup(email, password);
@@ -112,7 +118,8 @@ class _RegistarState extends State<Registar> {
                   },
                   child: isLogin
                       ? const Text("Don't have an account? Signup")
-                      : const Text('Already Signed Up? Login'))
+                      : const Text('Already Signed Up? Login')
+              )
             ],
           ),
         ),
