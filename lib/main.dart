@@ -1,11 +1,25 @@
+// import 'package:bus_track/pages/location.dart';
+import 'package:bus_track/pages/signup.dart';
 import 'package:flutter/material.dart';
-// import 'pages/login_page.dart';
-import 'pages/SignupPage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+
+// auth credentials repeated
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: 'AIzaSyDzO0YYrQuBT0eELo2vGe8d4vwaLA_TAKA',
+      appId: '1:981845607190:android:fe64029ade3c6b11240637',
+      projectId: 'busdata-2024',
+      messagingSenderId: '981845607190',
+    ),
+  );
+//   runApp( LoginPage());
+// }
+// void main() {
   runApp(const MyApp());
 }
-
 
 
 class MyApp extends StatelessWidget {
@@ -13,9 +27,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home:
+      // GoogleMapPage(),
+      Registar(),
+      // SignupPage(),
+      // LoginPage(),
     );
   }
 }
