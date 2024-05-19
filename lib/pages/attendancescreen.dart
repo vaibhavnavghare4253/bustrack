@@ -39,6 +39,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+
         onPressed: _submitAttendance,
         child: Icon(Icons.check),
       ),

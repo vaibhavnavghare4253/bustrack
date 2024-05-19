@@ -8,6 +8,7 @@ class Tryoff extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: Text('WELCOME'),
       ),
       drawer: Drawer(
@@ -79,7 +80,7 @@ class Tryoff extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              'hi ',
+                              'Hi ',
                               style: Theme.of(context)
                                   .textTheme
                                   .titleMedium!
