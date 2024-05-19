@@ -1,9 +1,11 @@
 import 'package:bus_track/pages/interpage.dart';
-// import 'package:bus_track/pages/interpage.dart';
 import 'package:flutter/material.dart';
-// import 'pages/login_page.dart';
 
-void main() {
+
+void main()  {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 

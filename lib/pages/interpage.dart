@@ -1,3 +1,4 @@
+import 'package:bus_track/pages/attendancescreen.dart';
 import 'package:flutter/material.dart';
 
 class Tryoff extends StatelessWidget {
@@ -7,7 +8,7 @@ class Tryoff extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My App'),
+        title: Text('WELCOME'),
       ),
       drawer: Drawer(
         child: ListView(
@@ -153,7 +154,7 @@ class Tryoff extends StatelessWidget {
                             maximumSize: Size(200, 60),
                           ),
                           child: const Text(
-                            'Button 1',
+                            'TRACK BUS',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -164,6 +165,7 @@ class Tryoff extends StatelessWidget {
                         SizedBox(height: 20),
                         OutlinedButton(
                           onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) { return AttendanceScreen();},));
                             // Perform an action when the second button is pressed
                           },
                           style: OutlinedButton.styleFrom(
@@ -174,7 +176,7 @@ class Tryoff extends StatelessWidget {
                             maximumSize: Size(200, 60),
                           ),
                           child: const Text(
-                            'Button 2',
+                            'ATTENDANCE',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
