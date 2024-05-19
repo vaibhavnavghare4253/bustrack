@@ -1,4 +1,4 @@
-// import 'package:bus_track/pages/location.dart';
+// import 'package:bus_track/pages/track.dart';
 import 'package:bus_track/pages/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';

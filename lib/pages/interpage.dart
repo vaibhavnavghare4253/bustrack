@@ -1,19 +1,20 @@
+import 'package:bus_track/pages/track.dart';
 import 'package:flutter/material.dart';
 
 class Tryoff extends StatelessWidget {
-  const Tryoff({Key? key}) : super(key: key);
+  const Tryoff({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My App'),
+        title: const Text('My App'),
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
@@ -36,22 +37,22 @@ class Tryoff extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
               onTap: () {
                 // Navigate to Home
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
               onTap: () {
                 // Navigate to Settings
               },
             ),
             ListTile(
-              leading: Icon(Icons.contacts),
-              title: Text('Contact Us'),
+              leading: const Icon(Icons.contacts),
+              title: const Text('Contact Us'),
               onTap: () {
                 // Navigate to Contact Us
               },
@@ -63,7 +64,7 @@ class Tryoff extends StatelessWidget {
         children: [
           Column(
             children: [
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 2.5,
                 child: Align(
@@ -99,7 +100,7 @@ class Tryoff extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Text(
                           'prn:123456789',
                           style: Theme.of(context)
@@ -109,7 +110,7 @@ class Tryoff extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Container(
@@ -144,16 +145,20 @@ class Tryoff extends StatelessWidget {
                         OutlinedButton(
                           onPressed: () {
                             // Perform an action when the first button is pressed
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const GoogleMapPage()),
+                            );
                           },
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.white,
                             side: const BorderSide(color: Colors.white, width: 4),
                             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                            minimumSize: Size(150, 50),
-                            maximumSize: Size(200, 60),
+                            minimumSize: const Size(150, 50),
+                            maximumSize: const Size(200, 60),
                           ),
                           child: const Text(
-                            'Button 1',
+                            'Map',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -161,7 +166,7 @@ class Tryoff extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         OutlinedButton(
                           onPressed: () {
                             // Perform an action when the second button is pressed
@@ -170,8 +175,8 @@ class Tryoff extends StatelessWidget {
                             foregroundColor: Colors.white,
                             side: const BorderSide(color: Colors.white, width: 4),
                             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                            minimumSize: Size(150, 50),
-                            maximumSize: Size(200, 60),
+                            minimumSize: const Size(150, 50),
+                            maximumSize: const Size(200, 60),
                           ),
                           child: const Text(
                             'Button 2',
@@ -182,7 +187,7 @@ class Tryoff extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         OutlinedButton(
                           onPressed: () {
                             // Perform an action when the third button is pressed
@@ -191,8 +196,8 @@ class Tryoff extends StatelessWidget {
                             foregroundColor: Colors.white,
                             side: const BorderSide(color: Colors.white, width: 4),
                             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                            minimumSize: Size(150, 50),
-                            maximumSize: Size(200, 60),
+                            minimumSize: const Size(150, 50),
+                            maximumSize: const Size(200, 60),
                           ),
                           child: const Text(
                             'Button 3',
@@ -210,7 +215,7 @@ class Tryoff extends StatelessWidget {
               ),
             ],
           ),
-          Positioned(
+          const Positioned(
             top: 16,
             right: 16,
             child: CircleAvatar(
