@@ -4,6 +4,8 @@ import '../dbfunctions.dart';
 import 'interpage.dart';
 
 
+
+
 class Registar extends StatefulWidget {
   const Registar({super.key});
 
