@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/login_auth.dart';
+import '../dbfunctions.dart';
 import 'interpage.dart';
 
 
@@ -20,7 +21,7 @@ class _RegistarState extends State<Registar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Email/Pass Auth'),
+        title: const Text('BusTrack'),
       ),
       body: Form(
         key: _formkey,
@@ -32,10 +33,10 @@ class _RegistarState extends State<Registar> {
               !isLogin
                   ? TextFormField(
                 key: const ValueKey('username'),
-                decoration: const InputDecoration(hintText: "Enter Username"),
+                decoration: const InputDecoration(hintText: "Enter name"),
                 validator: (value) {
                   if (value.toString().length < 3) {
-                    return 'Username is so small';
+                    return 'name is so small';
                   } else {
                     return null;
                   }
@@ -46,7 +47,57 @@ class _RegistarState extends State<Registar> {
                   });
                 },
               )
-                  : Container(),
+              : Container(),
+              TextFormField(
+                key: const ValueKey('prn_number'),
+                decoration: const InputDecoration(hintText: "Enter PRN number"),
+                validator: (value) {
+                  if (value.toString().length < 3) {
+                    return 'Invalid PRN';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  setState(() {
+                    // username = value!;
+                  });
+                },
+              ),
+              TextFormField(
+                key: const ValueKey('mobile_number'),
+                decoration: const InputDecoration(hintText: "Enter Mobile number"),
+                validator: (value) {
+                  if (value.toString().length < 3) {
+                    return 'Invalid Mobile number';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  setState(() {
+                    // username = value!;
+                  });
+                },
+              ),
+              TextFormField(
+                key: const ValueKey('bus_stop'),
+                decoration: const InputDecoration(hintText: "Enter bus stop name"),
+                validator: (value) {
+                  if (value.toString().length < 3) {
+                    return 'Invalid bus stop';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  setState(() {
+                    // username = value!;
+                  });
+                },
+              ),
+
+                  // : Container(),
               TextFormField(
                 key: const ValueKey('email'),
                 decoration: const InputDecoration(hintText: "Enter Email"),
@@ -86,32 +137,42 @@ class _RegistarState extends State<Registar> {
               SizedBox(
                   width: double.infinity,
                   height: 50,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        if (_formkey.currentState!.validate()) {
-                          _formkey.currentState!.save();
-                          // Navigate to the interpage.dart route
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const Tryoff()),
-                          );
-                          isLogin
-                              ? signin(email, password)
-                              : signup(email, password);
-                        }
-                      },
+                child: ElevatedButton(
+                    onPressed: () {
+                      if (_formkey.currentState!.validate()) {
+                        _formkey.currentState!.save();
+                        isLogin
+                            ? signin(email, password)
+                            : signup(email, password);
+
+                      }
+                    },
+                  // child: ElevatedButton(
+                  //     onPressed: () {
+                  //       if (_formkey.currentState!.validate()) {
+                  //         _formkey.currentState!.save();
+                  //         // Navigate to the interpage.dart route
+                  //         Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(builder: (context) => const Tryoff()),
+                  //         );
+                  //         isLogin
+                  //             ? signin(email, password)
+                  //             : signup(email, password);
+                  //       }
+                  //     },
 
                       child: isLogin
                           ? const Text('Login')
                           : const Text('Signup'))),
 
-              //TODO connect login button with dashboard...
 
               const SizedBox(
                 height: 10,
               ),
               TextButton(
                   onPressed: () {
+
                     setState(() {
                       isLogin = !isLogin;
                     });

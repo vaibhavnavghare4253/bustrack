@@ -1,5 +1,12 @@
+
+//TODO repair signout function and connect data retrival to the profile data
+import 'package:bus_track/components/login_auth.dart';
 import 'package:bus_track/pages/track.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'attendance.dart';
+
 
 class Tryoff extends StatelessWidget {
   const Tryoff({super.key});
@@ -8,7 +15,12 @@ class Tryoff extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My App'),
+        title: const Text('Welcome'),
+        actions: [
+          IconButton(onPressed: () async{
+            await FirebaseAuth.instance.signOut();
+          }, icon: Icon(Icons.logout))
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -45,7 +57,7 @@ class Tryoff extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
+              title: const Text('Edit Profile'),
               onTap: () {
                 // Navigate to Settings
               },
@@ -55,6 +67,13 @@ class Tryoff extends StatelessWidget {
               title: const Text('Contact Us'),
               onTap: () {
                 // Navigate to Contact Us
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Logout'),
+              onTap: () {
+                // logout
               },
             ),
           ],
@@ -102,7 +121,7 @@ class Tryoff extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          'prn:123456789',
+                          'My location: Beed ByPass',
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium!
@@ -110,18 +129,18 @@ class Tryoff extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        const SizedBox(height: 16),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Container(
-                            width: 180,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
+                        // const SizedBox(height: 16),
+                        // Align(
+                        //   alignment: Alignment.centerLeft,
+                        //   child: Container(
+                        //     width: 180,
+                        //     height: 30,
+                        //     decoration: BoxDecoration(
+                        //       color: Colors.blue,
+                        //       borderRadius: BorderRadius.circular(20),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -169,6 +188,9 @@ class Tryoff extends StatelessWidget {
                         const SizedBox(height: 20),
                         OutlinedButton(
                           onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const AttendanceScreen()),);
                             // Perform an action when the second button is pressed
                           },
                           style: OutlinedButton.styleFrom(
@@ -179,7 +201,7 @@ class Tryoff extends StatelessWidget {
                             maximumSize: const Size(200, 60),
                           ),
                           child: const Text(
-                            'Button 2',
+                            'Attendance',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -200,7 +222,7 @@ class Tryoff extends StatelessWidget {
                             maximumSize: const Size(200, 60),
                           ),
                           child: const Text(
-                            'Button 3',
+                            'Set Route',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

@@ -58,7 +58,23 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
           markerId: MarkerId('destinationLocation'),
           icon: BitmapDescriptor.defaultMarker,
           position: mountainView,
-        )
+        ),
+        //flags
+        Marker(
+          markerId: const MarkerId('Beed Bypass'),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+          position: LatLng(19.854854252864666, 75.30232072628695),
+        ),
+        Marker(
+          markerId: const MarkerId('Baba Petrol pump'),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+          position: LatLng(19.873361580314942, 75.32856675728776),
+        ),
+        Marker(
+          markerId: const MarkerId('Kranti Chowk'),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+          position: LatLng(19.873830430752385, 75.31544891041871),
+        ),
       },
       polylines: Set<Polyline>.of(polylines.values),
     ),
