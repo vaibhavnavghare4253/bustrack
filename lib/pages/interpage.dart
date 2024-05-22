@@ -1,26 +1,24 @@
-
-//TODO repair signout function and connect data retrival to the profile data
-import 'package:bus_track/components/login_auth.dart';
 import 'package:bus_track/pages/track.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import 'attendance.dart';
-
-//
+import 'attendance_page.dart';
+import 'bus_details_page.dart';
 
 class Tryoff extends StatelessWidget {
-  const Tryoff({super.key});
+  const Tryoff({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Welcome'),
+        title: Text('WELCOME'),
         actions: [
-          IconButton(onPressed: () async{
-            await FirebaseAuth.instance.signOut();
-          }, icon: Icon(Icons.logout))
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              // Perform logout action here
+            },
+          ),
         ],
       ),
       drawer: Drawer(
@@ -50,22 +48,22 @@ class Tryoff extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
+              leading: Icon(Icons.home),
+              title: Text('Home'),
               onTap: () {
                 // Navigate to Home
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
+              leading: Icon(Icons.settings),
               title: const Text('Edit Profile'),
               onTap: () {
                 // Navigate to Settings
               },
             ),
             ListTile(
-              leading: const Icon(Icons.contacts),
-              title: const Text('Contact Us'),
+              leading: Icon(Icons.contacts),
+              title: Text('Contact Us'),
               onTap: () {
                 // Navigate to Contact Us
               },
@@ -84,9 +82,12 @@ class Tryoff extends StatelessWidget {
         children: [
           Column(
             children: [
-              SizedBox(
+              Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 2.5,
+                decoration: BoxDecoration(
+                  color: Colors.yellowAccent,
+                ),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
@@ -98,50 +99,62 @@ class Tryoff extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
-                              'hi ',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 30
+                            Container(
+                              color: Colors.white,
+                              child: Text(
+                                'Hi',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 30,
+                                    backgroundColor: Colors.pinkAccent,
+                                    color: Colors.white),
                               ),
                             ),
-                            Text(
-                              'User ',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 30
+                            Container(
+                              color: Colors.pink.shade200,
+                              child: Text(
+                                'Admin',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 30,
+                                    backgroundColor: Colors.pinkAccent,
+                                    color: Colors.white),
                               ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 16),
-                        Text(
-                          'My location: Beed ByPass',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium!
-                              .copyWith(
-                            fontSize: 20,
+                        SizedBox(height: 16),
+                        Container(
+                          color: Colors.pinkAccent,
+                          child: Text(
+                            'My location: Beed ByPass',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(
+                                fontSize: 20,
+                                backgroundColor: Colors.pinkAccent,
+                                color: Colors.white),
                           ),
                         ),
-                        // const SizedBox(height: 16),
-                        // Align(
-                        //   alignment: Alignment.centerLeft,
-                        //   child: Container(
-                        //     width: 180,
-                        //     height: 30,
-                        //     decoration: BoxDecoration(
-                        //       color: Colors.blue,
-                        //       borderRadius: BorderRadius.circular(20),
-                        //     ),
-                        //   ),
-                        // ),
+                        SizedBox(height: 16),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            width: 180,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: Colors.pinkAccent,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -153,10 +166,10 @@ class Tryoff extends StatelessWidget {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     decoration: const BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.pink,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(80),
-                        topRight: Radius.circular(80),
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
                       ),
                     ),
                     child: Column(
@@ -164,68 +177,75 @@ class Tryoff extends StatelessWidget {
                       children: [
                         OutlinedButton(
                           onPressed: () {
-                            // Perform an action when the first button is pressed
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const GoogleMapPage()),
+                              MaterialPageRoute(
+                                  builder: (context) => BusDetailsPage()),
                             );
                           },
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.white,
-                            side: const BorderSide(color: Colors.white, width: 4),
-                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                            minimumSize: const Size(150, 50),
-                            maximumSize: const Size(200, 60),
+                            side: const BorderSide(
+                                color: Colors.white, width: 4),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 20),
+                            minimumSize: Size(200, 50),
+                            maximumSize: Size(200, 70),
                           ),
                           child: const Text(
-                            'Map',
+                            'Select Bus',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 25,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 30),
                         OutlinedButton(
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const AttendanceScreen()),);
-                            // Perform an action when the second button is pressed
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AttendancePage()),
+                            );
                           },
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.white,
-                            side: const BorderSide(color: Colors.white, width: 4),
-                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                            minimumSize: const Size(150, 50),
-                            maximumSize: const Size(200, 60),
+                            side: const BorderSide(
+                                color: Colors.white, width: 4),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 20),
+                            minimumSize: Size(200, 50),
+                            maximumSize: Size(200, 70),
                           ),
                           child: const Text(
                             'Attendance',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 25,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 30),
                         OutlinedButton(
                           onPressed: () {
                             // Perform an action when the third button is pressed
                           },
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.white,
-                            side: const BorderSide(color: Colors.white, width: 4),
-                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                            minimumSize: const Size(150, 50),
-                            maximumSize: const Size(200, 60),
+                            side: const BorderSide(
+                                color: Colors.white, width: 4),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 20),
+                            minimumSize: Size(200, 50),
+                            maximumSize: Size(200, 70),
                           ),
                           child: const Text(
-                            'Set Route',
+                            'Button 3',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 25,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
@@ -238,13 +258,14 @@ class Tryoff extends StatelessWidget {
               ),
             ],
           ),
-          const Positioned(
+          Positioned(
             top: 16,
             right: 16,
             child: CircleAvatar(
               radius: 50.0,
-              backgroundColor: Colors.blue,
-              backgroundImage: AssetImage('assets/userimg.jpg'), // Ensure the image path is correct
+              backgroundColor: Colors.lightBlueAccent,
+              backgroundImage:
+              AssetImage('assets/userimg.jpg'), // Ensure the image path is correct
             ),
           ),
         ],
@@ -252,3 +273,7 @@ class Tryoff extends StatelessWidget {
     );
   }
 }
+
+void main() => runApp(MaterialApp(
+  home: Tryoff(),
+));
