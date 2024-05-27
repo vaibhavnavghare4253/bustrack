@@ -47,8 +47,8 @@ class BusDetailsPage extends StatelessWidget {
                         );
                       },
                       style: OutlinedButton.styleFrom(
-                        foregroundColor: Colors.purpleAccent,
-                        side: const BorderSide(color: Colors.purple, width: 4),
+                        foregroundColor: Color(0xffffc837),
+                        side: const BorderSide(color: Color(0xffff8008), width: 4),
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                         minimumSize: const Size(230, 30),
                         maximumSize: const Size(1500, 50),
@@ -72,7 +72,7 @@ class BusDetailsPage extends StatelessWidget {
                       },
                       style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.purpleAccent,
-                        side: const BorderSide(color: Colors.purple, width: 4),
+                        side: const BorderSide(color: Color(0xffff8008), width: 4),
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                         minimumSize: const Size(230, 30),
                         maximumSize: const Size(1500, 50),
@@ -126,7 +126,7 @@ class BusDetailsPage extends StatelessWidget {
                       },
                       style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.purpleAccent,
-                        side: const BorderSide(color: Colors.purple, width: 4),
+                        side: const BorderSide(color: Color(0xffff8008), width: 4),
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                         minimumSize: const Size(230, 30),
                         maximumSize: const Size(1500, 50),
@@ -150,7 +150,7 @@ class BusDetailsPage extends StatelessWidget {
                       },
                       style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.purpleAccent,
-                        side: const BorderSide(color: Colors.purple, width: 4),
+                        side: const BorderSide(color: Color(0xffff8008),width: 4),
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                         minimumSize: const Size(230, 30),
                         maximumSize: const Size(1500, 50),
@@ -205,7 +205,7 @@ class BusDetailsPage extends StatelessWidget {
                       },
                       style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.purpleAccent,
-                        side: const BorderSide(color: Colors.purple, width: 4),
+                        side: const BorderSide(color: Color(0xffff8008), width: 4),
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                         minimumSize: const Size(230, 30),
                         maximumSize: const Size(1500, 50),
@@ -229,7 +229,7 @@ class BusDetailsPage extends StatelessWidget {
                       },
                       style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.purpleAccent,
-                        side: const BorderSide(color: Colors.purple, width: 4),
+                        side: const BorderSide(color: Color(0xffff8008), width: 4),
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                         minimumSize: const Size(230, 30),
                         maximumSize: const Size(1500, 50),

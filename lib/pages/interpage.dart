@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'attendance_page.dart';
 import 'bus_details_page.dart';
+import 'signup.dart';
+
 
 class Tryoff extends StatelessWidget {
   const Tryoff({Key? key}) : super(key: key);
@@ -34,6 +36,7 @@ class Tryoff extends StatelessWidget {
                       Color(0xffff8008),
                       Color(0xffffc837),
                     ]
+
                 ),
               ),
               child: Column(
@@ -93,14 +96,19 @@ class Tryoff extends StatelessWidget {
                 // height: double.infinity,
                 // width: double.infinity,
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 3.5,
+                height: MediaQuery.of(context).size.height / 2.5,
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(60),
+                      bottomRight: Radius.circular(00),
+                    ),
                   gradient: LinearGradient(
                     colors: [
                       Color(0xffff8008),
                       Color(0xffffc837),
                     ]
                   ),
+
                   // color: Colors.yellowAccent,
                 ),
                 child: Align(
@@ -177,16 +185,22 @@ class Tryoff extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  color: Colors.white,
+
+                  color: Color(0xffffc837),
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [
-                            Color(0xffff8008),
-                            Color(0xffffc837),
-                          ]
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(00),
+                        topRight: Radius.circular(60),
                       ),
+                      color: Colors.white
+                      // gradient: LinearGradient(
+                      //     colors: [
+                      //       Color(0xffff8008),
+                      //       Color(0xffffc837),
+                      //     ]
+                      // ),
                       // color: Colors.yellowAccent,
                       // borderRadius: BorderRadius.only(
                       //   topLeft: Radius.circular(20),
@@ -207,7 +221,7 @@ class Tryoff extends StatelessWidget {
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.white,
                             side: const BorderSide(
-                                color: Colors.white, width: 4),
+                                color: Colors.orange, width: 4),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 20),
                             minimumSize: Size(200, 50),
@@ -218,8 +232,9 @@ class Tryoff extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: Colors.orange,
                             ),
+
                           ),
                         ),
                         SizedBox(height: 35),
@@ -234,7 +249,7 @@ class Tryoff extends StatelessWidget {
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.white,
                             side: const BorderSide(
-                                color: Colors.white, width: 4),
+                                color: Colors.orange, width: 4),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 20),
                             minimumSize: Size(200, 50),
@@ -245,7 +260,7 @@ class Tryoff extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: Colors.orange,
                             ),
                           ),
                         ),
@@ -286,7 +301,7 @@ class Tryoff extends StatelessWidget {
               radius: 50.0,
               backgroundColor: Colors.lightBlueAccent,
               backgroundImage:
-              AssetImage('assets/userimg.jpg'), // Ensure the image path is correct
+              AssetImage('assets/sufi.jpg'), // Ensure the image path is correct
             ),
           ),
         ],
