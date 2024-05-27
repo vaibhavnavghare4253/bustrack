@@ -10,10 +10,12 @@ class Tryoff extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text('WELCOME'),
         actions: [
           IconButton(
+
             icon: Icon(Icons.logout),
             onPressed: () {
               // Perform logout action here
@@ -27,7 +29,12 @@ class Tryoff extends StatelessWidget {
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                gradient: LinearGradient(
+                    colors: [
+                      Color(0xffff8008),
+                      Color(0xffffc837),
+                    ]
+                ),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -83,10 +90,18 @@ class Tryoff extends StatelessWidget {
           Column(
             children: [
               Container(
+                // height: double.infinity,
+                // width: double.infinity,
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 2.5,
+                height: MediaQuery.of(context).size.height / 3.5,
                 decoration: BoxDecoration(
-                  color: Colors.yellowAccent,
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xffff8008),
+                      Color(0xffffc837),
+                    ]
+                  ),
+                  // color: Colors.yellowAccent,
                 ),
                 child: Align(
                   alignment: Alignment.centerLeft,
@@ -100,21 +115,21 @@ class Tryoff extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              color: Colors.white,
+                              // color: Colors.white,
                               child: Text(
-                                'Hi',
+                                'Hi ',
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleMedium!
                                     .copyWith(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 30,
-                                    backgroundColor: Colors.pinkAccent,
+                                    // backgroundColor: Colors.pinkAccent,
                                     color: Colors.white),
                               ),
                             ),
                             Container(
-                              color: Colors.pink.shade200,
+                              // color: Colors.pink.shade200,
                               child: Text(
                                 'Admin',
                                 style: Theme.of(context)
@@ -123,7 +138,7 @@ class Tryoff extends StatelessWidget {
                                     .copyWith(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 30,
-                                    backgroundColor: Colors.pinkAccent,
+                                    // backgroundColor: Colors.pinkAccent,
                                     color: Colors.white),
                               ),
                             ),
@@ -131,30 +146,30 @@ class Tryoff extends StatelessWidget {
                         ),
                         SizedBox(height: 16),
                         Container(
-                          color: Colors.pinkAccent,
+                          // color: Colors.pinkAccent,
                           child: Text(
                             'My location: Beed ByPass',
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium!
                                 .copyWith(
-                                fontSize: 20,
-                                backgroundColor: Colors.pinkAccent,
+                                fontSize: 25,
+                                // backgroundColor: Colors.pinkAccent,
                                 color: Colors.white),
                           ),
                         ),
-                        SizedBox(height: 16),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Container(
-                            width: 180,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color: Colors.pinkAccent,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
+                        // SizedBox(height: 16),
+                        // Align(
+                        //   alignment: Alignment.centerLeft,
+                        //   child: Container(
+                        //     width: 180,
+                        //     height: 30,
+                        //     decoration: BoxDecoration(
+                        //       color: Colors.pinkAccent,
+                        //       borderRadius: BorderRadius.circular(20),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -166,11 +181,17 @@ class Tryoff extends StatelessWidget {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     decoration: const BoxDecoration(
-                      color: Colors.pink,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
+                      gradient: LinearGradient(
+                          colors: [
+                            Color(0xffff8008),
+                            Color(0xffffc837),
+                          ]
                       ),
+                      // color: Colors.yellowAccent,
+                      // borderRadius: BorderRadius.only(
+                      //   topLeft: Radius.circular(20),
+                      //   topRight: Radius.circular(20),
+                      // ),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -201,7 +222,7 @@ class Tryoff extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 30),
+                        SizedBox(height: 35),
                         OutlinedButton(
                           onPressed: () {
                             Navigator.push(
@@ -229,28 +250,28 @@ class Tryoff extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 30),
-                        OutlinedButton(
-                          onPressed: () {
-                            // Perform an action when the third button is pressed
-                          },
-                          style: OutlinedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            side: const BorderSide(
-                                color: Colors.white, width: 4),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 20),
-                            minimumSize: Size(200, 50),
-                            maximumSize: Size(200, 70),
-                          ),
-                          child: const Text(
-                            'Button 3',
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                        // OutlinedButton(
+                        //   onPressed: () {
+                        //     // Perform an action when the third button is pressed
+                        //   },
+                        //   style: OutlinedButton.styleFrom(
+                        //     foregroundColor: Colors.white,
+                        //     side: const BorderSide(
+                        //         color: Colors.white, width: 4),
+                        //     padding: const EdgeInsets.symmetric(
+                        //         horizontal: 20, vertical: 20),
+                        //     minimumSize: Size(200, 50),
+                        //     maximumSize: Size(200, 70),
+                        //   ),
+                        //   child: const Text(
+                        //     'Button 3',
+                        //     style: TextStyle(
+                        //       fontSize: 25,
+                        //       fontWeight: FontWeight.bold,
+                        //       color: Colors.white,
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -259,7 +280,7 @@ class Tryoff extends StatelessWidget {
             ],
           ),
           Positioned(
-            top: 16,
+            top: 26,
             right: 16,
             child: CircleAvatar(
               radius: 50.0,
