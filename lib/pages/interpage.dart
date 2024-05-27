@@ -1,9 +1,11 @@
+
 import 'package:bus_track/pages/track.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'attendance_page.dart';
 import 'bus_details_page.dart';
 import 'signup.dart';
+import 'drawer/contact_us_page.dart';
 
 
 class Tryoff extends StatelessWidget {
@@ -75,6 +77,10 @@ class Tryoff extends StatelessWidget {
               leading: Icon(Icons.contacts),
               title: Text('Contact Us'),
               onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ContactUsPage()),
+                );
                 // Navigate to Contact Us
               },
             ),
