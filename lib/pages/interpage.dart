@@ -20,11 +20,11 @@ class Tryoff extends StatelessWidget {
         actions: [
           IconButton(
 
-            icon: Icon(Icons.logout),
-            onPressed: () {
-              // Perform logout action here
-            },
-          ),
+            onPressed: () async {
+          await FirebaseAuth.instance.signOut();
+          },
+            icon: const Icon(Icons.logout)
+          )
         ],
       ),
       drawer: Drawer(

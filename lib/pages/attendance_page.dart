@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AttendancePage extends StatefulWidget {
+  const AttendancePage({super.key});
+
   @override
   _AttendancePageState createState() => _AttendancePageState();
 }
@@ -10,7 +12,7 @@ class _AttendancePageState extends State<AttendancePage> {
   final List<Map<String, dynamic>> students = [
     {
       'name': 'Ansari Sufiyan',
-      'profilePhoto': 'assets/sufi.jpg',
+      'profilePhoto': 'assets/userimg.jpg',
       'rollNumber': 'CS3272',
       'class': 'CSE 3rd Year',
       'prn': 'PRN123456',
@@ -43,7 +45,7 @@ class _AttendancePageState extends State<AttendancePage> {
     },
     {
       'name': 'Vaibhav Dapke',
-      'profilePhoto': 'assets/alex_johnson.jpg',
+      'profilePhoto': 'assets/userimg.jpg',
       'rollNumber': 'CS3268',
       'class': 'CSE 3rd Year',
       'prn': 'PRN123458',
@@ -51,7 +53,7 @@ class _AttendancePageState extends State<AttendancePage> {
     },
     {
       'name': 'ABCD',
-      'profilePhoto': 'assets/emily_davis.jpg',
+      'profilePhoto': 'assets/userimg.jpg',
       'rollNumber': 'CS3280',
       'class': 'CSE 3rd Year',
       'prn': 'PRN123459',
@@ -72,7 +74,7 @@ class _AttendancePageState extends State<AttendancePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Attendance'),
+        title: const Text('Attendance'),
       ),
       body: Stack(
         children: [
@@ -81,7 +83,7 @@ class _AttendancePageState extends State<AttendancePage> {
             itemBuilder: (context, index) {
               final student = students[index];
               return Card(
-                margin: EdgeInsets.all(8.0),
+                margin: const EdgeInsets.all(8.0),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -92,13 +94,13 @@ class _AttendancePageState extends State<AttendancePage> {
                             backgroundImage: AssetImage(student['profilePhoto']),
                             radius: 30,
                           ),
-                          SizedBox(width: 16),
+                          const SizedBox(width: 16),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 student['name']!,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -125,9 +127,9 @@ class _AttendancePageState extends State<AttendancePage> {
                               ),
                               foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                             ),
-                            child: Text('Present'),
+                            child: const Text('Present'),
                           ),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                           ElevatedButton(
                             onPressed: () {
                               updateAttendanceStatus(index, 'Absent');
@@ -140,7 +142,7 @@ class _AttendancePageState extends State<AttendancePage> {
                               ),
                               foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                             ),
-                            child: Text('Absent'),
+                            child: const Text('Absent'),
                           ),
                         ],
                       ),
@@ -157,7 +159,7 @@ class _AttendancePageState extends State<AttendancePage> {
               onPressed: () {
                 // Handle submit action
               },
-              child: Icon(Icons.check),
+              child: const Icon(Icons.check),
             ),
           ),
         ],

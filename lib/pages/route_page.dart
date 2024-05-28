@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class RoutePage extends StatelessWidget {
+  const RoutePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bus Route Details'),
+        title: const Text('Bus Route Details'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -14,26 +16,26 @@ class RoutePage extends StatelessWidget {
           children: [
             Container(
               color: Colors.lightBlue, // Set the desired background color here
-              padding: EdgeInsets.all(7.0),
+              padding: const EdgeInsets.all(7.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'BusNumber: MH 20 AS 1234', // Example bus number
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white, // Background color of the circle
                     ),
-                    padding: EdgeInsets.all(5.0), // Padding inside the circle
+                    padding: const EdgeInsets.all(5.0), // Padding inside the circle
                     child: IconButton(
-                      icon: Icon(Icons.event_seat, size: 35), // Increased size
+                      icon: const Icon(Icons.event_seat, size: 35), // Increased size
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SeatingPage()),
+                          MaterialPageRoute(builder: (context) => const SeatingPage()),
                         );
                       },
                     ),
@@ -41,11 +43,11 @@ class RoutePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               color: Colors.lightGreen[200],
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -63,10 +65,10 @@ class RoutePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView(
-                children: [
+                children: const [
                   RouteListItem(
                     location: 'College',
                     arrivalTime: '   Start     ',
@@ -114,7 +116,7 @@ class RouteListItem extends StatelessWidget {
   final String departureTime;
   final String distance;
 
-  RouteListItem({
+  const RouteListItem({super.key, 
     required this.location,
     required this.arrivalTime,
     required this.departureTime,
@@ -127,9 +129,9 @@ class RouteListItem extends StatelessWidget {
       children: [
         Text(
           arrivalTime,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Stack(
           children: [
             Container(
@@ -137,7 +139,7 @@ class RouteListItem extends StatelessWidget {
               height: 80,
               color: Colors.grey.withOpacity(0.5),  // Semi-transparent color
             ),
-            Positioned(
+            const Positioned(
               top: 0,
               left: -5,
               child: Icon(
@@ -146,7 +148,7 @@ class RouteListItem extends StatelessWidget {
                 color: Colors.black,  // Dark colored circle
               ),
             ),
-            Positioned(
+            const Positioned(
               bottom: 0,
               left: -5,
               child: Icon(
@@ -157,27 +159,27 @@ class RouteListItem extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 location,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 distance,
-                style: TextStyle(fontSize: 12, color: Colors.grey),
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
             ],
           ),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Text(
           departureTime,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
       ],
     );
@@ -185,18 +187,20 @@ class RouteListItem extends StatelessWidget {
 }
 
 class SeatingPage extends StatelessWidget {
+  const SeatingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bus Seating Arrangement'),
+        title: const Text('Bus Seating Arrangement'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             for (int i = 0; i < 10; i++)
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Icon(Icons.event_seat, size: 45),
@@ -213,6 +217,6 @@ class SeatingPage extends StatelessWidget {
   }
 }
 
-void main() => runApp(MaterialApp(
+void main() => runApp(const MaterialApp(
   home: RoutePage(),
 ));
