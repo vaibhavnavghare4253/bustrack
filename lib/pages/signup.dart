@@ -16,6 +16,14 @@ class _RegistarState extends State<Registar> {
   String email = '';
   String password = '';
   String username = '';
+  String route='select route';
+
+  var items=[
+    'Beed Bypass',
+    'Railway Station',
+    'Vits',
+    'kranti chowk'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,45 +52,62 @@ class _RegistarState extends State<Registar> {
                     username = value!;
                   },
                 ),
-              // TextFormField(
-              //   key: const ValueKey('prn_number'),
-              //   decoration: const InputDecoration(hintText: "Enter PRN number"),
-              //   validator: (value) {
-              //     if (value == null || value.isEmpty || value.length < 3) {
-              //       return 'Invalid PRN';
-              //     }
-              //     return null;
-              //   },
-              //   onSaved: (value) {
-              //     // Save PRN number if needed
-              //   },
-              // ),
-              // TextFormField(
-              //   key: const ValueKey('mobile_number'),
-              //   decoration: const InputDecoration(hintText: "Enter Mobile number"),
-              //   validator: (value) {
-              //     if (value == null || value.isEmpty || value.length < 3) {
-              //       return 'Invalid Mobile number';
-              //     }
-              //     return null;
-              //   },
-              //   onSaved: (value) {
-              //     // Save Mobile number if needed
-              //   },
-              // ),
-              // TextFormField(
-              //   key: const ValueKey('bus_stop'),
-              //   decoration: const InputDecoration(hintText: "Enter bus stop name"),
-              //   validator: (value) {
-              //     if (value == null || value.isEmpty || value.length < 3) {
-              //       return 'Invalid bus stop';
-              //     }
-              //     return null;
-              //   },
-              //   onSaved: (value) {
-              //     // Save bus stop name if needed
-              //   },
-              // ),
+              TextFormField(
+                key: const ValueKey('prn_number'),
+                decoration: const InputDecoration(hintText: "Enter PRN number"),
+                validator: (value) {
+                  if (value == null || value.isEmpty || value.length < 3) {
+                    return 'Invalid PRN';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  // Save PRN number if needed
+                },
+              ),
+              TextFormField(
+                key: const ValueKey('mobile_number'),
+                decoration: const InputDecoration(hintText: "Enter Mobile number"),
+                validator: (value) {
+                  if (value == null || value.isEmpty || value.length < 3) {
+                    return 'Invalid Mobile number';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  // Save Mobile number if needed
+                },
+              ),
+    //           DropdownButton (
+    //             value: route,
+    //               icon: const Icon(Icons.keyboard_arrow_down),
+    //             items: items.map((String items) {
+    //               return DropdownMenuItem(
+    //                 value: items,
+    //                 child: Text(items),
+    //               );
+    //             }).toList(),
+    // // After selecting the desired option,it will
+    // // change button value to selected value
+    // onChanged: (String? newValue) {
+    // setState(() {
+    // route = newValue!;
+    // });
+    //             }),
+
+    TextFormField(
+                key: const ValueKey('bus_stop'),
+                decoration: const InputDecoration(hintText: "Enter bus stop name"),
+                validator: (value) {
+                  if (value == null || value.isEmpty || value.length < 3) {
+                    return 'Invalid bus stop';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  // Save bus stop name if needed
+                },
+              ),
               TextFormField(
                 key: const ValueKey('email'),
                 decoration: const InputDecoration(hintText: "Enter Email"),
@@ -118,22 +143,26 @@ class _RegistarState extends State<Registar> {
                   onPressed: () async {
                     if (_formkey.currentState!.validate()) {
                       _formkey.currentState!.save();
-                      try {
-                        if (isLogin) {
-                          await signin(email, password);
-                        } else {
-                          await signup(email, password);
-                        }
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => Tryoff()),
-                        );
-                      } catch (e) {
-                        // Handle errors such as showing a Snackbar or AlertDialog
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Error: $e')),
-                        );
-                      }
+                      isLogin
+                          ? signin(email, password)
+                          : signup(email, password);
+                      // try {
+                      //   if
+                      //   (isLogin) async {
+                      //     await signin(email, password);
+                      //   } else {
+                      //     await signup(email, password);
+                      //   }
+                        // Navigator.pushReplacement(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) => Tryoff()),
+                        // );
+                      // } catch (e) {
+                      //   // Handle errors such as showing a Snackbar or AlertDialog
+                      //   ScaffoldMessenger.of(context).showSnackBar(
+                      //     SnackBar(content: Text('Error: $e')),
+                      //   );
+                      // }
                     }
                   },
                   child: isLogin ? const Text('Login') : const Text('Signup'),

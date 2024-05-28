@@ -18,6 +18,8 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   static const googlePlex = LatLng(19.830671141849415, 75.28703397381443);
   static const mountainView = LatLng(19.88034982609392, 75.38110022831425);
 
+  static const zhalta_Phata = LatLng(19.88034982609392, 75.38110022831425);
+
   LatLng? currentPosition;
   Map<PolylineId, Polyline> polylines = {};
 
