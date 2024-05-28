@@ -87,8 +87,12 @@ class Tryoff extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Logout'),
-              onTap: () {
-                // logout
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Registar()), // Navigate to the login page
+                );
               },
             ),
           ],

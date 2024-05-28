@@ -34,7 +34,9 @@ class ContactUsPage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              'contact@example.com',
+              'amsufiyan121@gmail.com'
+                  '\n sachinbodkhe07@gmail.com'
+                  '\n vaibhavnavghare@gmail.com',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 20),
