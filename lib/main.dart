@@ -1,3 +1,4 @@
+import 'package:bus_track/pages/Registar.dart';
 import 'package:bus_track/pages/signup.dart';
 import 'package:bus_track/pages/track.dart';
 
@@ -40,7 +41,6 @@ class MyApp extends StatelessWidget {
         if(snapshot.hasData){
           return Tryoff();
         }else{
-          // return Registar();
           return Registar();
         }
       })
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
       // GoogleMapPage(),
       // Registar(),
       // MyForm(),
-      //   Tryoff()
+
       // SignupPage(),
       // LoginPage(),
     );
