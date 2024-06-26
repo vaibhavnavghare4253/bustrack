@@ -52,32 +52,32 @@ class _RegistarState extends State<Registar> {
                     username = value!;
                   },
                 ),
-              TextFormField(
-                key: const ValueKey('prn_number'),
-                decoration: const InputDecoration(hintText: "Enter PRN number"),
-                validator: (value) {
-                  if (value == null || value.isEmpty || value.length < 3) {
-                    return 'Invalid PRN';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  // Save PRN number if needed
-                },
-              ),
-              TextFormField(
-                key: const ValueKey('mobile_number'),
-                decoration: const InputDecoration(hintText: "Enter Mobile number"),
-                validator: (value) {
-                  if (value == null || value.isEmpty || value.length < 3) {
-                    return 'Invalid Mobile number';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  // Save Mobile number if needed
-                },
-              ),
+              // TextFormField(
+              //   key: const ValueKey('prn_number'),
+              //   decoration: const InputDecoration(hintText: "Enter PRN number"),
+              //   validator: (value) {
+              //     if (value == null || value.isEmpty || value.length < 3) {
+              //       return 'Invalid PRN';
+              //     }
+              //     return null;
+              //   },
+              //   onSaved: (value) {
+              //     // Save PRN number if needed
+              //   },
+              // ),
+              // TextFormField(
+              //   key: const ValueKey('mobile_number'),
+              //   decoration: const InputDecoration(hintText: "Enter Mobile number"),
+              //   validator: (value) {
+              //     if (value == null || value.isEmpty || value.length < 3) {
+              //       return 'Invalid Mobile number';
+              //     }
+              //     return null;
+              //   },
+              //   onSaved: (value) {
+              //     // Save Mobile number if needed
+              //   },
+              // ),
     //           DropdownButton (
     //             value: route,
     //               icon: const Icon(Icons.keyboard_arrow_down),
@@ -95,19 +95,19 @@ class _RegistarState extends State<Registar> {
     // });
     //             }),
 
-    TextFormField(
-                key: const ValueKey('bus_stop'),
-                decoration: const InputDecoration(hintText: "Enter bus stop name"),
-                validator: (value) {
-                  if (value == null || value.isEmpty || value.length < 3) {
-                    return 'Invalid bus stop';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  // Save bus stop name if needed
-                },
-              ),
+    // TextFormField(
+    //             key: const ValueKey('bus_stop'),
+    //             decoration: const InputDecoration(hintText: "Enter bus stop name"),
+    //             validator: (value) {
+    //               if (value == null || value.isEmpty || value.length < 3) {
+    //                 return 'Invalid bus stop';
+    //               }
+    //               return null;
+    //             },
+    //             onSaved: (value) {
+    //               // Save bus stop name if needed
+    //             },
+    //           ),
               TextFormField(
                 key: const ValueKey('email'),
                 decoration: const InputDecoration(hintText: "Enter Email"),
