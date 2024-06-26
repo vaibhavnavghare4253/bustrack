@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
         if(snapshot.hasData){
           return Tryoff();
         }else{
+          // return Registar();
           return Registar();
         }
       })
