@@ -34,7 +34,7 @@ class BusDetailsPage extends StatelessWidget {
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Driver: John Doe',
+                        'Driver: Gangaram',
                         style: TextStyle(fontSize: 16),
                       ),
                       Text(
@@ -112,7 +112,7 @@ class BusDetailsPage extends StatelessWidget {
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Driver: John Doe',
+                        'Driver: Sadashiv',
                         style: TextStyle(fontSize: 16),
                       ),
                       Text(
@@ -191,7 +191,7 @@ class BusDetailsPage extends StatelessWidget {
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Driver: John Doe',
+                        'Driver: ram patil',
                         style: TextStyle(fontSize: 16),
                       ),
                       Text(

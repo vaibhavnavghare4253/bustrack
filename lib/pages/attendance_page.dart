@@ -8,7 +8,6 @@ class AttendancePage extends StatefulWidget {
 }
 
 class _AttendancePageState extends State<AttendancePage> {
-  // Dummy data for students' attendance
   final List<Map<String, dynamic>> students = [
     {
       'name': 'Ansari Sufiyan',
@@ -18,7 +17,6 @@ class _AttendancePageState extends State<AttendancePage> {
       'prn': 'PRN123456',
       'status': 'Absent'
     },
-
     {
       'name': 'Sachin Bodkhe',
       'profilePhoto': 'assets/userimg.jpg',
@@ -59,15 +57,27 @@ class _AttendancePageState extends State<AttendancePage> {
       'prn': 'PRN123459',
       'status': 'Absent'
     },
-    // Add more students as needed
   ];
 
-
+  int presentCount = 0;
 
   void updateAttendanceStatus(int index, String status) {
     setState(() {
       students[index]['status'] = status;
     });
+  }
+
+  void navigateToAttendanceResultPage() {
+    // Calculate the number of students marked as 'Present'
+    presentCount = students.where((student) => student['status'] == 'Present').length;
+
+    // Navigate to the results page
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => AttendanceResultPage(presentCount: presentCount),
+      ),
+    );
   }
 
   @override
@@ -156,13 +166,32 @@ class _AttendancePageState extends State<AttendancePage> {
             right: 16,
             bottom: 16,
             child: FloatingActionButton(
-              onPressed: () {
-                // Handle submit action
-              },
+              onPressed: navigateToAttendanceResultPage,
               child: const Icon(Icons.check),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class AttendanceResultPage extends StatelessWidget {
+  final int presentCount;
+
+  const AttendanceResultPage({Key? key, required this.presentCount}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Attendance Result'),
+      ),
+      body: Center(
+        child: Text(
+          'Number of students present: $presentCount',
+          style: TextStyle(fontSize: 24),
+        ),
       ),
     );
   }
