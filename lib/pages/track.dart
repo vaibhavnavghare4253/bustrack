@@ -18,6 +18,8 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   static const googlePlex = LatLng(19.830671141849415, 75.28703397381443);
   static const mountainView = LatLng(19.88034982609392, 75.38110022831425);
 
+  static const zhalta_Phata = LatLng(19.88034982609392, 75.38110022831425);
+
   LatLng? currentPosition;
   Map<PolylineId, Polyline> polylines = {};
 
@@ -63,17 +65,17 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
         Marker(
           markerId: const MarkerId('Beed Bypass'),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-          position: LatLng(19.854854252864666, 75.30232072628695),
+          position: const LatLng(19.854854252864666, 75.30232072628695),
         ),
         Marker(
           markerId: const MarkerId('Baba Petrol pump'),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-          position: LatLng(19.873361580314942, 75.32856675728776),
+          position: const LatLng(19.873361580314942, 75.32856675728776),
         ),
         Marker(
           markerId: const MarkerId('Kranti Chowk'),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-          position: LatLng(19.873830430752385, 75.31544891041871),
+          position: const LatLng(19.873830430752385, 75.31544891041871),
         ),
       },
       polylines: Set<Polyline>.of(polylines.values),
@@ -115,6 +117,7 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   Future<List<LatLng>> fetchPolylinePoints() async {
     final polylinePoints = PolylinePoints();
 
+    //error zhala ka thik
     final result = await polylinePoints.getRouteBetweenCoordinates(
       googleMapsApiKey,
       PointLatLng(googlePlex.latitude, googlePlex.longitude),
