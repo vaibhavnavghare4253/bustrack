@@ -1,14 +1,14 @@
-// import 'package:bus_track/pages/track.dart';
-//
-import 'package:bus_track/pages/db_retrive.dart';
-import 'package:bus_track/pages/interpage.dart';
+import 'package:bus_track/pages/Registar.dart';
 import 'package:bus_track/pages/signup.dart';
+import 'package:bus_track/pages/track.dart';
+
+import 'package:bus_track/pages/interpage.dart';
+import 'package:bus_track/pages/user_detail.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'MyHomePage.dart';
-import 'firestore_service.dart';
+
 
 
 // auth credentials repeated
@@ -25,35 +25,32 @@ void main() async {
 //   runApp( LoginPage());
 // }
 // void main() {
-  runApp( MyApp());
+  runApp(const MyApp());
 }
 
 
 class MyApp extends StatelessWidget {
-
-   MyApp({super.key});
-  final FirestoreService firestoreService = FirestoreService(); // Create the service here
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:
+      home: off()
       // StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(), builder: (context,snapshot){
       //   if(snapshot.hasData){
       //     return Tryoff();
       //   }else{
-      //     return Registar();
+      //     return off();
       //   }
       // })
       // DatabaseOptions(),
-      MyHomePage(firestoreService: firestoreService),
       // GoogleMapPage(),
       // Registar(),
+      // MyForm(),
+
       // SignupPage(),
       // LoginPage(),
     );
   }
 }
-
-
