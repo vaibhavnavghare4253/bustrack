@@ -18,12 +18,6 @@ class _RegistarState extends State<Registar> {
   String username = '';
   String route='select route';
 
-  var items=[
-    'Beed Bypass',
-    'Railway Station',
-    'Vits',
-    'kranti chowk'
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -78,23 +72,7 @@ class _RegistarState extends State<Registar> {
               //     // Save Mobile number if needed
               //   },
               // ),
-    //           DropdownButton (
-    //             value: route,
-    //               icon: const Icon(Icons.keyboard_arrow_down),
-    //             items: items.map((String items) {
-    //               return DropdownMenuItem(
-    //                 value: items,
-    //                 child: Text(items),
-    //               );
-    //             }).toList(),
-    // // After selecting the desired option,it will
-    // // change button value to selected value
-    // onChanged: (String? newValue) {
-    // setState(() {
-    // route = newValue!;
-    // });
-    //             }),
-
+    //
     // TextFormField(
     //             key: const ValueKey('bus_stop'),
     //             decoration: const InputDecoration(hintText: "Enter bus stop name"),
