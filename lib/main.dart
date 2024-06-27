@@ -36,14 +36,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: off()
-      // StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(), builder: (context,snapshot){
-      //   if(snapshot.hasData){
-      //     return Tryoff();
-      //   }else{
-      //     return off();
-      //   }
-      // })
+      home:
+      // off()
+      StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(), builder: (context,snapshot){
+        if(snapshot.hasData){
+          return Tryoff();
+        }else{
+          return Registar();
+         // off();
+        }
+      })
       // DatabaseOptions(),
       // GoogleMapPage(),
       // Registar(),

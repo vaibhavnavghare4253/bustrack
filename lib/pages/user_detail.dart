@@ -192,12 +192,18 @@ class offState extends State<off> {
              Collref.add(
                {
                  'Name': nameControl.text,
+
                  'E-mail': emailControl.text,
                  'Password': passControl.text,
                  'Mobile': mobileControl.text,
                  'PRN': prnControl.text,
 
                }
+
+             );
+             Navigator.pushReplacement(
+               context,
+               MaterialPageRoute(builder: (context) => const Tryoff()),
              );
 
            }, child: const Text('Register'),

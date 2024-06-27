@@ -1,4 +1,5 @@
 
+import 'package:bus_track/pages/user_detail.dart';
 import 'package:flutter/material.dart';
 import '../components/login_auth.dart'; // Ensure these functions are imported correctly
 import 'interpage.dart'; // Import the home page
@@ -121,20 +122,27 @@ class _RegistarState extends State<Registar> {
                   onPressed: () async {
                     if (_formkey.currentState!.validate()) {
                       _formkey.currentState!.save();
-                      isLogin
-                          ? signin(email, password)
-                          : signup(email, password);
+                      // isLogin
+                      //     ? signin(email, password)
+                      //     : signup((email, password) as String,
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(builder: (context) => const off())
+                      //     ) as String
+                      //      );
+
                       // try {
-                      //   if
-                      //   (isLogin) async {
-                      //     await signin(email, password);
-                      //   } else {
-                      //     await signup(email, password);
-                      //   }
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => Tryoff()),
-                        // );
+                        if
+                        (isLogin)  {
+                          await signin(email, password);
+                        } else {
+                          await signup(email, password);
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const off()),
+                          );
+                        }
+
                       // } catch (e) {
                       //   // Handle errors such as showing a Snackbar or AlertDialog
                       //   ScaffoldMessenger.of(context).showSnackBar(
@@ -143,6 +151,7 @@ class _RegistarState extends State<Registar> {
                       // }
                     }
                   },
+
                   child: isLogin ? const Text('Login') : const Text('Signup'),
                 ),
               ),

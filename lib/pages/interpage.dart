@@ -166,7 +166,7 @@ class Tryoff extends StatelessWidget {
                         Container(
                           // color: Colors.pinkAccent,
                           child: Text(
-                            'My location: Beed ByPass',
+                            'My location: CSMSS ',
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium!
@@ -304,12 +304,12 @@ class Tryoff extends StatelessWidget {
               ),
             ],
           ),
-          Positioned(
+          const Positioned(
             top: 26,
             right: 16,
             child: CircleAvatar(
               radius: 50.0,
-              backgroundColor: Colors.lightBlueAccent,
+              backgroundColor: Colors.transparent,
               backgroundImage:
               AssetImage('assets/sufi.jpg'), // Ensure the image path is correct
             ),
